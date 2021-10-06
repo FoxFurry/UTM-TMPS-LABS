@@ -11,7 +11,6 @@
 class WebSite {
 protected:
     std::string host;
-
 public:
     WebSite(std::string _host): host(_host) {}
     std::string getHost() {return host;}

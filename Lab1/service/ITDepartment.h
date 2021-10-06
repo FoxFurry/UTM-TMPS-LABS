@@ -11,7 +11,6 @@
 class ITDepartment {
 private:
     ITDepartment() {}
-
 public:
     ITDepartment(ITDepartment const&) = delete;
     void operator=(ITDepartment const&) = delete;
@@ -30,7 +29,6 @@ public:
 
         deployedWeb->deploy();
     }
-
 };
 
 #endif //LAB1_ITDEPARTMENT_H
