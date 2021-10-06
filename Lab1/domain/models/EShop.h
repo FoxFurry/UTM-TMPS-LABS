@@ -7,10 +7,11 @@
 
 #include "Website.h"
 
-class EShop: public WebSite {
+class EShop : public WebSite {
 public:
-    EShop(std::string _host): WebSite(_host) {}
-    void deploy(){
+    EShop(std::string _host) : WebSite(_host) {}
+
+    void deploy() {
         std::cout << "Deploying a eshop platform on: " << this->host << '\n';
     }
 };

@@ -11,18 +11,20 @@
 class ITDepartment {
 private:
     ITDepartment() {}
-public:
-    ITDepartment(ITDepartment const&) = delete;
-    void operator=(ITDepartment const&) = delete;
 
-    static ITDepartment* getInstance(){
+public:
+    ITDepartment(ITDepartment const &) = delete;
+
+    void operator=(ITDepartment const &) = delete;
+
+    static ITDepartment *getInstance() {
         static ITDepartment it;
         return &it;
     }
 
-    void deployWebsite(WebSiteType type, std::string _host){
+    void deployWebsite(WebSiteType type, std::string _host) {
         WebSite *deployedWeb = Factory(type, _host);
-        if(deployedWeb==nullptr){
+        if (deployedWeb == nullptr) {
             std::cout << "Could not create such website!";
             return;
         }

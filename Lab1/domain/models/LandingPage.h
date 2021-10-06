@@ -7,10 +7,11 @@
 
 #include "Website.h"
 
-class LandingPage: public WebSite {
+class LandingPage : public WebSite {
 public:
-    LandingPage(std::string _host): WebSite(_host) {}
-    void deploy(){
+    LandingPage(std::string _host) : WebSite(_host) {}
+
+    void deploy() {
         std::cout << "Deploying a landing page on: " << this->host << '\n';
     }
 };

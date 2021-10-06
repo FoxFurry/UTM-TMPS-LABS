@@ -9,7 +9,7 @@ int main() {
     Consumer consumers[n];
 
     while (true) {
-        for(int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++)
             consumers[i].consume();
     }
 }

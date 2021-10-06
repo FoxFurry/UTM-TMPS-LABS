@@ -10,7 +10,7 @@
 #include "../domain/models/Portfolio.h"
 #include "../domain/models/LandingPage.h"
 
-enum class WebSiteType{
+enum class WebSiteType {
     EShop,
     LandingPage,
     Portfolio
@@ -23,7 +23,7 @@ WebSite *Factory(WebSiteType type, std::string _host) {
             result = new EShop(_host);
             break;
         case WebSiteType::LandingPage:
-            result = new  LandingPage(_host);
+            result = new LandingPage(_host);
             break;
         case WebSiteType::Portfolio:
             result = new Portfolio(_host);

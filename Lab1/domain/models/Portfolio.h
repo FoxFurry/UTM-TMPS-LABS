@@ -7,10 +7,11 @@
 
 #include "Website.h"
 
-class Portfolio: public WebSite {
+class Portfolio : public WebSite {
 public:
-    Portfolio(std::string _host): WebSite(_host) {}
-    void deploy(){
+    Portfolio(std::string _host) : WebSite(_host) {}
+
+    void deploy() {
         std::cout << "Deploying a portfolio page on: " << this->host << '\n';
     }
 };

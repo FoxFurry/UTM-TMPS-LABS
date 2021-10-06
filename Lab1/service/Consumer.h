@@ -9,13 +9,14 @@
 
 class Consumer {
 public:
-    Consumer(){}
-    void consume(){
+    Consumer() {}
+
+    void consume() {
         WebSiteType types[3] = {WebSiteType::LandingPage, WebSiteType::Portfolio, WebSiteType::EShop};
-        int idx = rand()%3;
+        int idx = rand() % 3;
         std::string host;
         char tmp[25];
-        std::sprintf(tmp,"%d.%d.%d.%d", rand()%255+1, rand()%255+1, rand()%255+1, rand()%255+1);
+        std::sprintf(tmp, "%d.%d.%d.%d", rand() % 255 + 1, rand() % 255 + 1, rand() % 255 + 1, rand() % 255 + 1);
         host = tmp;
         ITDepartment::getInstance()->deployWebsite(types[idx], host);
     }
