@@ -9,27 +9,32 @@
 #include "../domain/models/EShop.h"
 #include "../domain/models/Portfolio.h"
 #include "../domain/models/LandingPage.h"
+#include "WebBuilder.h"
 
 enum class WebSiteType {
     EShop,
     LandingPage,
-    Portfolio
+    Portfolio,
+    ComposedWeb
 };
 
 WebSite *Factory(WebSiteType type, std::string _host) {
-    WebSite *result = nullptr;
     switch (type) {
         case WebSiteType::EShop:
-            result = new EShop(_host);
-            break;
+            return new EShop(_host);
         case WebSiteType::LandingPage:
-            result = new LandingPage(_host);
-            break;
+            return new LandingPage(_host);
         case WebSiteType::Portfolio:
-            result = new Portfolio(_host);
-            break;
+            return new Portfolio(_host);
+        case WebSiteType::ComposedWeb:
+            ComposedBuilder* comp_builder = new ComposedBuilder(_host);
+            WebDirector* comp_director = new WebDirector(comp_builder);
+
+            comp_director->BuildBestWeb();
+
+            return new ComposedWeb(comp_builder->build());
     }
-    return result;
+    return nullptr;
 }
 
 #endif //LAB1_WEBFACTORY_H

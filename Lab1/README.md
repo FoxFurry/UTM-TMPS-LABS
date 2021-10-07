@@ -14,6 +14,11 @@ Also, IT specialists are really lazy, so they created a _factory_ to simply and 
 
 **Refer to infrastructure layer to see them in detail**
 
+Some consumers said they want to create their own website structure and, with such coincidence - all of them want "top-of-the-notch" page with all cool front-end features.
+For this case, IT department created a composed website, a builder and a director to create this "nop-of-the-notch" website.
+
+**Refer to infrastructure layer to see them in detail**
+
 Overall, project create N-quantity of consumers and ask each one to _consume_ (since this is what consumers do) a website for IT depart. No multi-threading, cuz it's obsiosly overkill
 
 Project follows domain/infrastructrure/application/service pattern, although this is not recommended way of designing in C++

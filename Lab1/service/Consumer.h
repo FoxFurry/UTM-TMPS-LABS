@@ -12,8 +12,10 @@ public:
     Consumer() {}
 
     void consume() {
-        WebSiteType types[3] = {WebSiteType::LandingPage, WebSiteType::Portfolio, WebSiteType::EShop};
-        int idx = rand() % 3;
+        const int n = 4;
+
+        WebSiteType types[n] = {WebSiteType::LandingPage, WebSiteType::Portfolio, WebSiteType::EShop, WebSiteType::ComposedWeb};
+        int idx = rand() % n;
         std::string host;
         char tmp[25];
         std::sprintf(tmp, "%d.%d.%d.%d", rand() % 255 + 1, rand() % 255 + 1, rand() % 255 + 1, rand() % 255 + 1);
