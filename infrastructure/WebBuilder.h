@@ -2,10 +2,10 @@
 // Created by isaca on 10/7/2021.
 //
 
-#ifndef LAB1_WEBBUILDER_H
-#define LAB1_WEBBUILDER_H
+#ifndef WEBBUILDER_H
+#define WEBBUILDER_H
 
-#include "../domain/models/ComposedWeb.h"
+#include "../domain/models/WebSite/ComposedWeb.h"
 
 class WebBuilder {
 private:
@@ -24,14 +24,14 @@ public:
 class ComposedBuilder : public WebBuilder {
 private:
     ComposedWeb *product;
-    std::string host;
+    Deployment *host;
 
     void addElement(std::string _element) override {
         product->elements.push_back(_element);
     }
 
 public:
-    ComposedBuilder(std::string _host) : host(_host) {
+    ComposedBuilder(Deployment *_host) : host(_host) {
         Reset();
     }
 
@@ -85,4 +85,4 @@ public:
     }
 };
 
-#endif //LAB1_WEBBUILDER_H
+#endif //WEBBUILDER_H

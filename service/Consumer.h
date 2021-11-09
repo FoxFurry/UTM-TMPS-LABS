@@ -2,8 +2,8 @@
 // Created by foxfurry on 10/6/21.
 //
 
-#ifndef LAB1_CONSUMER_H
-#define LAB1_CONSUMER_H
+#ifndef CONSUMER_H
+#define CONSUMER_H
 
 #include "ITDepartment.h"
 
@@ -12,16 +12,22 @@ public:
     Consumer() {}
 
     void consume() {
-        const int n = 4;
+        const int siteNum = 4, deployNum = 3;
 
-        WebSiteType types[n] = {WebSiteType::LandingPage, WebSiteType::Portfolio, WebSiteType::EShop, WebSiteType::ComposedWeb};
-        int idx = rand() % n;
+        WebSiteType typesWeb[siteNum] = {WebSiteType::LandingPage, WebSiteType::Portfolio, WebSiteType::EShop, WebSiteType::ComposedWeb};
+        DeployType typesDeploy[deployNum] = {DeployType::AWS, DeployType::DigitalOcean, DeployType::AWS};
+
+        int idx = rand() % siteNum;
+        int idxDeploy = rand() % deployNum;
+
         std::string host;
         char tmp[25];
         std::sprintf(tmp, "%d.%d.%d.%d", rand() % 255 + 1, rand() % 255 + 1, rand() % 255 + 1, rand() % 255 + 1);
         host = tmp;
-        ITDepartment::getInstance()->deployWebsite(types[idx], host);
+
+
+        ITDepartment::getInstance()->deployWebsite(typesWeb[idx], typesDeploy[idxDeploy], host);
     }
 };
 
-#endif //LAB1_CONSUMER_H
+#endif //CONSUMER_H

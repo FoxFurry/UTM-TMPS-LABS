@@ -47,7 +47,9 @@ each work!
 
 ### Web-hosting department
 
-This project is about 2 types of people: people who work in IT department and consumers who ask IT depart to host their website.
+#### Lab 1
+
+This project is about 2 types of people: people who work in IT department and consumers who ask IT depart to cloudProvider their website.
 
 **Refer to service layer to see them in details**
 
@@ -71,6 +73,28 @@ Overall, project create N-quantity of consumers and ask each one to _consume_ (s
 Project follows domain/infrastructrure/application/service pattern, although this is not recommended way of designing in C++
 
 https://badia-kharroubi.gitbooks.io/microservices-architecture/content/patterns/tactical-patterns/domain-application-infrastructure-services-pattern.html
+
+#### Lab 2
+
+In this version, few more patterns were added.
+
+Firstly, _facade_. Facade was not implicitly written. You see, IT department provides all necessary functionality through a
+single method: **deployWebsite**. This method encapsulates builders, factories, compositors and many other, so it is a legit facade.
+
+**Refer to infrastructure layer to see them in details**
+
+Next, _composite_. _Composite_ was declared both implicitly and explicitly. Explicitly it is shown in WebAggregator.h. (I know, it holds just array of objects, but it's still composite)
+WebAggregator is a class which provides "history" functionality, allowing IT department to remember all websites they created.
+Right now history functionality is not used, but I have some ideas in future where to use it. Implicitly _composite_ is declared in WebSites.
+Since each website can now have custom cloud provider - they contain and object of cloud provider.
+
+**Refer to infrastructure/models layer to see them in details**
+
+Lastly, now, instead of just hosts, we have cloud providers. To ensure we can have all possible permutations of providers/website, we use
+_bridge_ pattern. Cloud provider is an object of type **Deployment** and now every WebSite holds on instance of this object.
+
+**Refer to models layer to see them in details**
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

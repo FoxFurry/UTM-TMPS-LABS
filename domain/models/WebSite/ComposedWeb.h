@@ -2,8 +2,8 @@
 // Created by isaca on 10/7/2021.
 //
 
-#ifndef LAB1_COMPOSEDWEB_H
-#define LAB1_COMPOSEDWEB_H
+#ifndef COMPOSEDWEB_H
+#define COMPOSEDWEB_H
 
 #include <iostream>
 #include <vector>
@@ -11,7 +11,7 @@
 
 class ComposedWeb : public WebSite{
 public:
-    ComposedWeb(std::string _host) : WebSite(_host) {}
+    ComposedWeb(Deployment *_newDeploy) : WebSite(_newDeploy) {}
     std::vector<std::string> elements;
     std::string getElements(){
         std::string result;
@@ -24,8 +24,9 @@ public:
     }
 
     void deploy() {
-        std::cout << "Deploying a custom platform on: " << this->host << " with elements:\n" + getElements();
+        std::cout << "Deploying a custom platform on: "; this->deployment->deploy();
+        std::cout << "With elements:\n" + getElements();
     }
 };
 
-#endif //LAB1_COMPOSEDWEB_H
+#endif //COMPOSEDWEB_H

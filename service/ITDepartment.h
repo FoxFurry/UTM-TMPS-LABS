@@ -2,16 +2,17 @@
 // Created by foxfurry on 10/6/21.
 //
 
-#ifndef LAB1_ITDEPARTMENT_H
-#define LAB1_ITDEPARTMENT_H
+#ifndef ITDEPARTMENT_H
+#define ITDEPARTMENT_H
 
 #include "../infrastructure/WebFactory.h"
+#include "WebAggregator.h"
 #include <iostream>
 
 class ITDepartment {
 private:
     ITDepartment() {}
-
+    Aggregator aggregator;
 public:
     ITDepartment(ITDepartment const &) = delete;
 
@@ -22,15 +23,16 @@ public:
         return &it;
     }
 
-    void deployWebsite(WebSiteType type, std::string _host) {
-        WebSite *deployedWeb = Factory(type, _host);
+    void deployWebsite(WebSiteType type, DeployType deployType, std::string _host) {
+        WebSite *deployedWeb = Factory(type, deployType, _host);
         if (deployedWeb == nullptr) {
             std::cout << "Could not create such website!\n";
             return;
         }
 
         deployedWeb->deploy();
+        aggregator.addWebsite(deployedWeb);
     }
 };
 
-#endif //LAB1_ITDEPARTMENT_H
+#endif //ITDEPARTMENT_H
