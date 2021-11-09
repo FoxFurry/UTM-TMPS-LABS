@@ -42,9 +42,6 @@
 
 ## About The Project
 
-This repository contains laboratory works for TMPS. Please refer to README from uproot folders to see more details about
-each work!
-
 ### Web-hosting department
 
 #### Lab 1
