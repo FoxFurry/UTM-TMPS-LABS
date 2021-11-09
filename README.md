@@ -118,20 +118,6 @@ Clone the repo
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- USAGE EXAMPLES -->
-
-## Usage
-
-For usage, refer to README from a laboratory work you wish to use.
-
-For example:
-
-```sh
-cd lab1 
-```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 <!-- LICENSE -->
 
