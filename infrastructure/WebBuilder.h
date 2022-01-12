@@ -27,7 +27,7 @@ private:
     Deployment *host;
 
     void addElement(std::string _element) override {
-        product->elements.push_back(_element);
+        product->pushElement(_element);
     }
 
 public:

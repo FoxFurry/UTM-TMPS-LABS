@@ -17,26 +17,6 @@
 
 
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#license">License</a></li>
-  </ol>
-</details>
-
-
 
 <!-- ABOUT THE PROJECT -->
 
@@ -92,6 +72,19 @@ _bridge_ pattern. Cloud provider is an object of type **Deployment** and now eve
 
 **Refer to models layer to see them in details**
 
+#### Lab 3
+
+For this version we added one single pattern: _visitor_.
+
+_Visitor_ is used to traverse array of elements in **ComposedWeb**. For this pattern I created all necessary classes in 
+same header to ensure no dependency loop (yeah, it's kinda messy, but it's better than rearranging whole architecture).
+Now instead of raw strings, **ComposedWeb** contains array of **ComposedWebElements** which implement **Element** class. 
+**Element** class features **accept** method which is necessary for _visitor_ pattern. The _visitor_ itself is implemented in
+**Visitor** interface and **ComposedWebVisitor** class. Then I traverse through elements, I call **accept** method of each element
+and pass **ComposedWebVisitor** as element. **ComposedWebVisitor** in this case just prints the element, but it could manipulate it
+however we want, because of pointers.
+
+**Refer to models layer to see them in details**
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
